@@ -52,7 +52,7 @@
 		
 	<h:form>
 	
-		<h:dataTable value="#{personBean.people}"  var="p" update="true">
+		<h:dataTable value="#{personBean.people}"  var="p" update="true" style="text-align:center;">
 			<f:facet name="header">
 				Tabela de Pessoas
 			</f:facet>
@@ -70,10 +70,19 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">AÇÃO</f:facet>
-				<h:commandLink  style="margin: 10px;" immediate="true" value="Editar"> 
+				<h:panelGrid columns="2" >
+					
+					<h:commandLink  style="margin: 10px;" immediate="true" value="Editar"> 
+					<f:setPropertyActionListener value="#{p}"
+						target="#{personBean.person}"  />
+					</h:commandLink>
+					
+					<h:commandLink  style="margin: 10px;" immediate="true" value="Deletar"> 
 					<f:setPropertyActionListener value="#{p}"
 						target="#{personBean.person}"  />
 				</h:commandLink>
+					
+				</h:panelGrid>
 			</h:column>
 		</h:dataTable>
 	

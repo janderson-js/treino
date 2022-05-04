@@ -13,7 +13,7 @@ public class DAOGeneric<E> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	public void toSave(E entity) {
+	public void toSaveDAO(E entity) {
 		
 		EntityManager em = JPAUseful.getEntityManager();
 		EntityTransaction et = em.getTransaction();
@@ -25,7 +25,7 @@ public class DAOGeneric<E> implements Serializable {
 		em.close();		
 	}
 	
-	public E toMerge(E entity) {
+	public E toMergeDAO(E entity) {
 		
 		EntityManager em = JPAUseful.getEntityManager();
 		EntityTransaction et = em.getTransaction();
@@ -51,6 +51,10 @@ public class DAOGeneric<E> implements Serializable {
 		em.close();
 		
 		return  people;
+	}
+	
+	public void toDeleteDAO(Long id) {
+		
 	}
 
 }

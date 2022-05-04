@@ -53,7 +53,7 @@ public class PersonBean implements Serializable {
 			}else {
 				messages("Cadastrado com sucesso!!", "toSaveMessage");
 			}
-			person = daoGeneric.toMerge(person); 
+			person = daoGeneric.toMergeDAO(person); 
 			listPerson();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,10 +73,13 @@ public class PersonBean implements Serializable {
 	}
 	
 	public Person toEdit() {
-		
-		
 		return person;
 	}
+	
+	public void toDelete() {
+		daoGeneric.toDeleteDAO(null);
+	}
+	
 	public List<Person> getPeople() {
 		return people;
 	}
