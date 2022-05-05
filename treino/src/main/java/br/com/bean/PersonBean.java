@@ -80,7 +80,7 @@ public class PersonBean implements Serializable {
 		
 		try {
 			daoGeneric.toDeleteDAO(person);
-			person = new Person();
+			toClear();
 			listPerson();
 			messages("Deletado com sucesso", "formPersonMsg:toSuccessMessage");
 		} catch (Exception e) {

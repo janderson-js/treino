@@ -39,6 +39,27 @@
 			<h:outputLabel for="sobrenome" value="Sobrenome:"/>
 			<h:inputText id="sobrenome" value="#{personBean.person.surname}" title="Sobrenome do usúario"/>
 			
+			<h:outputLabel for="cep" value="CEP:"/>
+			<h:inputText id="cep" value="#{personBean.person.cep}" title="CEP do endereço do usuario"/>
+			
+			<h:outputLabel for="address" value="Logradouro:"/>
+			<h:inputText id="address" value="#{personBean.person.address}" title="Logradouro do usuario"/>
+			
+			<h:outputLabel for="number" value="Número:"/>
+			<h:inputText id="number" value="#{personBean.person.number}" title="Número da casa do usuario"/>
+			
+			<h:outputLabel for="complement" value="Complemento:"/>
+			<h:inputText id="complement" value="#{personBean.person.complement}" title="Complemento do endereço do usuario"/>
+			
+			<h:outputLabel for="district" value="bairro:"/>
+			<h:inputText id="district" value="#{personBean.person.district}" title="bairro do usuario"/>
+			
+			<h:outputLabel for="locality" value="Localidade:"/>
+			<h:inputText id="locality" value="#{personBean.person.locality}" title="Localidade do endereço"/>
+			
+			<h:outputLabel for="uf" value="UF:"/>
+			<h:inputText id="uf" value="#{personBean.person.uf}" title="Estado do endereço"/>
+			
 			<h:outputLabel for="idade" value="Idade:"/>
 			<h:inputText id="idade" value="#{personBean.person.age}" title="Idade do usúario"/>
 			
@@ -47,6 +68,9 @@
 			
 			<h:outputLabel for="senha" value="Senha:"/>
 			<h:inputSecret id="senha" value="#{personBean.person.userPassword}" title="Senha do usúario"/>
+			
+			<h:outputLabel for="active" value="Ativo:"/>
+			<h:selectBooleanCheckbox id="active" value="#{personBean.person.active}" />
 						
 			<h:panelGroup style="display:flex;justify-content:flex-start;">
 				<h:commandButton value="Salvar" action="#{personBean.toSave}" update="formPerson" title="Salvar" />
@@ -68,7 +92,7 @@
 			</h:column>
 			<h:column>
 				<f:facet name="header">NOME</f:facet>
-				<h:outputLabel value="#{p.name} #{p.surname}" />
+				<h:outputLabel value="#{p.name}  #{p.surname}" />
 			</h:column>
 			<h:column>
 				<f:facet name="header">IDADE</f:facet>
