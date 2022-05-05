@@ -13,15 +13,21 @@
 <h:body>
 
 	<h1>Cadastro JSF</h1>
-
-	<h:form 
-			id="formPerson" style="margin-bottom:80px;">
+	<div>
+		<h:form id="formPersonMsg" style="margin-bottom:15px;" >
+			<h:message style="color:#0f5132;background-color:#d1e7dd;border-color:#badbcc;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
+			for="toSuccessMessage"  id="toSuccessMessage" autoUpdate="true" display="text" />
 			
-		<h:messages globalOnly="true"/>
-		
-		<h:messages id="toSaveMessage" autoUpdate="true" />
-		
-		
+			<h:message style="color:#842029;background-color:#f8d7da;border-color:#f5c2c7;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
+			for="toDangerMessage" id="toDangerMessage" autoUpdate="true" display="text"/>
+			
+			<h:message style="color:#664d03;background-color:#fff3cd;border-color:#ffecb5;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
+			for="toWarningMessage"  id="toWarningMessage" autoUpdate="true" display="text" />
+		</h:form>
+	</div>
+
+	<h:form id="formPerson" style="margin-bottom:5px;" >
+
 		<h:panelGrid columns="2">
 			 
 			<h:outputLabel for="id" value="ID: " />
@@ -43,14 +49,14 @@
 			<h:inputSecret id="senha" value="#{personBean.person.userPassword}" title="Senha do usúario"/>
 						
 			<h:panelGroup style="display:flex;justify-content:flex-start;">
-				<h:commandButton value="Salvar" action="#{personBean.toSave}" title="Salvar" />
-				<h:commandButton value="Limpar" action="#{personBean.toClear}" title="Limpar"  />				
+				<h:commandButton value="Salvar" action="#{personBean.toSave}" update="formPerson" title="Salvar" />
+				<h:commandButton value="Limpar" action="#{personBean.toClear}" update="formPerson" title="Limpar"  />				
 			</h:panelGroup>
 		
 		</h:panelGrid>
 	</h:form>
 		
-	<h:form>
+	<h:form >
 	
 		<h:dataTable value="#{personBean.people}"  var="p" update="true" style="text-align:center;">
 			<f:facet name="header">
@@ -72,12 +78,12 @@
 				<f:facet name="header">AÇÃO</f:facet>
 				<h:panelGrid columns="2" >
 					
-					<h:commandLink  style="margin: 10px;" immediate="true" value="Editar"> 
+					<h:commandLink  style="margin: 10px;" immediate="true" action="#{personBean.toEdit}" value="Editar"> 
 					<f:setPropertyActionListener value="#{p}"
 						target="#{personBean.person}"  />
 					</h:commandLink>
 					
-					<h:commandLink  style="margin: 10px;" immediate="true" value="Deletar"> 
+					<h:commandLink  style="margin: 10px;" immediate="true" action="#{personBean.toDelete}" value="Deletar"> 
 					<f:setPropertyActionListener value="#{p}"
 						target="#{personBean.person}"  />
 				</h:commandLink>

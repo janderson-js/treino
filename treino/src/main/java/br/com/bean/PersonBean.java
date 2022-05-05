@@ -49,18 +49,18 @@ public class PersonBean implements Serializable {
 		
 		try {
 			if(person.getId() != null) {
-				messages("Editado com sucesso!!", "toSaveMessage");
+				messages("Editado com sucesso!!", "formPersonMsg:toSuccessMessage");
 			}else {
-				messages("Cadastrado com sucesso!!", "toSaveMessage");
+				messages("Cadastrado com sucesso!!", "formPersonMsg:toSuccessMessage");
 			}
 			person = daoGeneric.toMergeDAO(person); 
 			listPerson();
 		} catch (Exception e) {
 			e.printStackTrace();
 			if(person.getId() != null) {
-				messages("Ocorreu um erro ao editar o usúario!!","toSaveMessage");
+				messages("Ocorreu um erro ao editar o usúario!!","formPerson:toDangerMessage");
 			}else {
-				messages("Ocorreu um erro ao cadastra o usúario!!","toSaveMessage");
+				messages("Ocorreu um erro ao cadastra o usúario!!","formPerson:toDangerMessage");
 			}
 			listPerson();
 		}
@@ -76,8 +76,19 @@ public class PersonBean implements Serializable {
 		return person;
 	}
 	
-	public void toDelete() {
-		daoGeneric.toDeleteDAO(null);
+	public String toDelete() {
+		
+		try {
+			daoGeneric.toDeleteDAO(person);
+			person = new Person();
+			listPerson();
+			messages("Deletado com sucesso", "formPersonMsg:toSuccessMessage");
+		} catch (Exception e) {
+			e.printStackTrace();
+			messages("Deletado com sucesso", "formPersonMsg:toDangerMessage");
+		}
+		
+		return "";
 	}
 	
 	public List<Person> getPeople() {
