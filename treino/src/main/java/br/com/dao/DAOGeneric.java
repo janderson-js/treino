@@ -53,7 +53,17 @@ public class DAOGeneric<E> implements Serializable {
 		return  people;
 	}
 	
-	public void toDeleteDAO(Long id) {
+	public void toDeleteDAO(E entity) {
+		
+		EntityManager em = JPAUseful.getEntityManager();
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		
+		Object id = JPAUseful.getPrimaryKey(entity);
+		em.createQuery("Delete from "+entity.getClass().getCanonicalName()+ " where id="+ id).executeUpdate();
+		
+		et.commit();
+		em.close();
 		
 	}
 

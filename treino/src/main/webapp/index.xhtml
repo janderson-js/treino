@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-	<title>Olá JSF</title>
+	<title>OlÃ¡ JSF</title>
 	
 	
 </h:head>
 
 <h:body>
 		<div style="width: 100vw; height: 100vh; justify-content: center;align-items: center;display: flex;flex-direction: column; ">
-			<h1>Olá, Projeto JSF</h1>
+			<h1>OlÃ¡, Projeto JSF</h1>
 			
 			<h:form id="formLogin" style="">
 				<h:panelGrid columns="2">
@@ -20,12 +20,12 @@
 						<h:outputText value="Login JSF" />
 					</f:facet>
 					<h:outputLabel for="login" value="Login" />
-					<h:inputText id="login" value="#{pessoaBean.pessoa.login}" />
+					<h:inputText id="login" value="#{personBean.person.userLogin}" />
 					
 					<h:outputLabel for="senha" value="Senha" />
-					<h:inputSecret id="senha" value="#{pessoaBean.pessoa.senha}" />
+					<h:inputSecret id="senha" value="#{personBean.person.userPassword}" />
 					
-					<h:commandButton value="Entrar" action="#{pessoaBean.logar}" />
+					<h:commandButton value="Entrar" action="#{personBean.Login}" />
 				</h:panelGrid>
 			</h:form>
 			
