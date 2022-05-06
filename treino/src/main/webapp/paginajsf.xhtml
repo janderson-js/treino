@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -7,7 +7,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 	
 <h:head>
-	<title>Olá JSF</title>
+	<title>OlÃ¡ JSF</title>
 </h:head>
 
 <h:body>
@@ -31,43 +31,43 @@
 		<h:panelGrid columns="2">
 			 
 			<h:outputLabel for="id" value="ID: " />
-			<h:inputText pt:placeholder="ID" value="#{personBean.person.id}" id="id" title="Mostra o id após usuário cadastrado"  readonly="true" />
+			<h:inputText pt:placeholder="ID" value="#{personBean.person.id}" id="id" title="Mostra o id apÃ³s usuÃ¡rio cadastrado"  readonly="true" />
 			
 			<h:outputLabel for="nome" value="Nome:"/>
-			<h:inputText id="nome" value="#{personBean.person.name}" title="Nome do usúario"/>
+			<h:inputText id="nome" value="#{personBean.person.name}" title="Nome do usÃºario"/>
 			
 			<h:outputLabel for="sobrenome" value="Sobrenome:"/>
-			<h:inputText id="sobrenome" value="#{personBean.person.surname}" title="Sobrenome do usúario"/>
+			<h:inputText id="sobrenome" value="#{personBean.person.surname}" title="Sobrenome do usÃºario"/>
 			
 			<h:outputLabel for="cep" value="CEP:"/>
-			<h:inputText id="cep" value="#{personBean.person.cep}" title="CEP do endereço do usuario"/>
+			<h:inputText id="cep" value="#{personBean.person.cep}" title="CEP do endereÃ§o do usuario"/>
 			
 			<h:outputLabel for="address" value="Logradouro:"/>
 			<h:inputText id="address" value="#{personBean.person.address}" title="Logradouro do usuario"/>
 			
-			<h:outputLabel for="number" value="Número:"/>
-			<h:inputText id="number" value="#{personBean.person.number}" title="Número da casa do usuario"/>
+			<h:outputLabel for="number" value="NÃºmero:"/>
+			<h:inputText id="number" value="#{personBean.person.number}" title="NÃºmero da casa do usuario"/>
 			
 			<h:outputLabel for="complement" value="Complemento:"/>
-			<h:inputText id="complement" value="#{personBean.person.complement}" title="Complemento do endereço do usuario"/>
+			<h:inputText id="complement" value="#{personBean.person.complement}" title="Complemento do endereÃ§o do usuario"/>
 			
 			<h:outputLabel for="district" value="bairro:"/>
 			<h:inputText id="district" value="#{personBean.person.district}" title="bairro do usuario"/>
 			
 			<h:outputLabel for="locality" value="Localidade:"/>
-			<h:inputText id="locality" value="#{personBean.person.locality}" title="Localidade do endereço"/>
+			<h:inputText id="locality" value="#{personBean.person.locality}" title="Localidade do endereÃ§o"/>
 			
 			<h:outputLabel for="uf" value="UF:"/>
-			<h:inputText id="uf" value="#{personBean.person.uf}" title="Estado do endereço"/>
+			<h:inputText id="uf" value="#{personBean.person.uf}" title="Estado do endereÃ§o"/>
 			
 			<h:outputLabel for="idade" value="Idade:"/>
-			<h:inputText id="idade" value="#{personBean.person.age}" title="Idade do usúario"/>
+			<h:inputText id="idade" value="#{personBean.person.age}" title="Idade do usÃºario"/>
 			
 			<h:outputLabel for="login" value="Login:"/>
-			<h:inputText id="login" value="#{personBean.person.userLogin}" title="Login do usúario"/>
+			<h:inputText id="login" value="#{personBean.person.userLogin}" title="Login do usÃºario"/>
 			
 			<h:outputLabel for="senha" value="Senha:"/>
-			<h:inputSecret id="senha" value="#{personBean.person.userPassword}" title="Senha do usúario"/>
+			<h:inputSecret id="senha" value="#{personBean.person.userPassword}" title="Senha do usÃºario"/>
 			
 			<h:outputLabel for="active" value="Ativo:"/>
 			<h:selectBooleanCheckbox id="active" value="#{personBean.person.active}" />
@@ -99,7 +99,7 @@
 				<h:outputLabel value="#{p.age}" />
 			</h:column>
 			<h:column>
-				<f:facet name="header">AÇÃO</f:facet>
+				<f:facet name="header">AÃ‡ÃƒO</f:facet>
 				<h:panelGrid columns="2" >
 					
 					<h:commandLink  style="margin: 10px;" immediate="true" action="#{personBean.toEdit}" value="Editar"> 
