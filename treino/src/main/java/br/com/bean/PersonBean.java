@@ -1,7 +1,12 @@
 package br.com.bean;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +16,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import br.com.dao.DAOGeneric;
 import br.com.entities.Person;
@@ -57,6 +65,36 @@ public class PersonBean implements Serializable {
 	}
 	public void setPeople(List<Person> people) {
 		this.people = people;
+	}
+	
+	public void searchCEP(AjaxBehaviorEvent event) {
+		try {
+			URL url = new URL("https://viacep.com.br/ws/"+ person.getCep() +"/json/");
+			
+			URLConnection connection = url.openConnection();
+			InputStream is = connection.getInputStream();
+			
+			BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+			
+			String cep = "";
+			StringBuilder jsonCEP = new StringBuilder();
+			
+			while ((cep = br.readLine()) != null) {
+				jsonCEP.append(cep);
+			}
+			
+			Person gsonAux = new Gson().fromJson(jsonCEP.toString(), Person.class);
+			
+			person.setCep(gsonAux.getCep());
+			person.setAddress(gsonAux.getAddress());
+			person.setComplement(gsonAux.getComplement());
+			person.setDistrict(gsonAux.getDistrict());
+			person.setLocality(gsonAux.getLocality());
+			person.setUf(gsonAux.getUf());
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public String Logout() {
