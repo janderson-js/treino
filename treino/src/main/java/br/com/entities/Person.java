@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import com.google.gson.annotations.SerializedName;
+
 @Entity
 public class Person implements Serializable {
 	
@@ -23,11 +25,15 @@ public class Person implements Serializable {
 	private int age;
 	
 	private String cep;
+	@SerializedName("logradouro")
 	private String address;
 	private String number;
+	@SerializedName("bairro")
 	private String district;
 	private String complement;
+	@SerializedName("localidade")
 	private String locality;
+	@SerializedName("uf")
 	private String uf;
 	
 	private String login;
