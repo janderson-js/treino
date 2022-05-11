@@ -12,7 +12,11 @@
 
 <h:body>
 
+	<ui:include src="menu.xhtml"/>
+
 	<h1>Cadastro JSF</h1>
+	
+	<h:outputLabel value="Usuário logado: #{sessionScope['userLoaded'].name} #{sessionScope['userLoaded'].surname}" />
 	<div>
 		<h:form id="formPersonMsg" style="margin-bottom:15px;" >
 			<h:message style="color:#0f5132;background-color:#d1e7dd;border-color:#badbcc;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
@@ -64,10 +68,10 @@
 			<h:inputText id="idade" value="#{personBean.person.age}" title="Idade do usúario"/>
 			
 			<h:outputLabel for="login" value="Login:"/>
-			<h:inputText id="login" value="#{personBean.person.userLogin}" title="Login do usúario"/>
+			<h:inputText id="login" value="#{personBean.person.login}" title="Login do usúario"/>
 			
 			<h:outputLabel for="senha" value="Senha:"/>
-			<h:inputSecret id="senha" value="#{personBean.person.userPassword}" title="Senha do usúario"/>
+			<h:inputSecret id="senha" value="#{personBean.person.password}" title="Senha do usúario"/>
 			
 			<h:outputLabel for="active" value="Ativo:"/>
 			<h:selectBooleanCheckbox id="active" value="#{personBean.person.active}" />

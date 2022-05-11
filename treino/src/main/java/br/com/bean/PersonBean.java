@@ -58,13 +58,25 @@ public class PersonBean implements Serializable {
 	public void setPeople(List<Person> people) {
 		this.people = people;
 	}
+	
+	public String Logout() {
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		ExternalContext externalContext = context.getExternalContext();
+		
+		HttpServletRequest req = (HttpServletRequest) context.getCurrentInstance().getExternalContext().
+				getRequest();
+		req.getSession().invalidate();
+		
+		return "index.jsf";
+	}
 
 	public String Login() {
 		
 		Person userLoaded = new Person();
 		
-		if(idaoPerson.consultUser(person.getUserLogin(), person.getUserPassword()) != null) {
-			userLoaded = idaoPerson.consultUser(person.getUserLogin(), person.getUserPassword());
+		if(idaoPerson.consultUser(person.getLogin(), person.getPassword()) != null) {
+			userLoaded = idaoPerson.consultUser(person.getLogin(), person.getPassword());
 		}
 		
 		if(person != null) {
