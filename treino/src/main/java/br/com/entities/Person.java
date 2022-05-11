@@ -30,8 +30,8 @@ public class Person implements Serializable {
 	private String locality;
 	private String uf;
 	
-	private String userLogin;
-	private String userPassword;
+	private String login;
+	private String password;
 	private String userProfile;
 	private Boolean active;
 	
@@ -102,17 +102,17 @@ public class Person implements Serializable {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-	public String getUserLogin() {
-		return userLogin;
+	public String getLogin() {
+		return login;
 	}
-	public void setUserLogin(String userLogin) {
-		this.userLogin = userLogin;
+	public void setLogin(String login) {
+		this.login = login;
 	}
-	public String getUserPassword() {
-		return userPassword;
+	public String getPassword() {
+		return password;
 	}
-	public void setUserPassword(String userPassword) {
-		this.userPassword = userPassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getUserProfile() {
 		return userProfile;

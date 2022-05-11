@@ -21,7 +21,7 @@ public class IDAOPersonImpl implements IDAOPerson, Serializable {
 		EntityTransaction et = em.getTransaction();
 		et.begin();
 		
-		person = (Person) em.createQuery("Select p from Person p where p.userlogin='"+login+"' and p.userpassword='"+password+"'").getSingleResult();
+		person = (Person) em.createQuery("Select p from Person p where p.login='"+login+"' and p.password='"+password+"'").getSingleResult();
 		
 		et.commit();
 		em.close();

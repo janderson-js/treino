@@ -20,10 +20,10 @@
 						<h:outputText value="Login JSF" />
 					</f:facet>
 					<h:outputLabel for="login" value="Login" />
-					<h:inputText id="login" value="#{personBean.person.userLogin}" />
+					<h:inputText id="login" value="#{personBean.person.login}" />
 					
 					<h:outputLabel for="senha" value="Senha" />
-					<h:inputSecret id="senha" value="#{personBean.person.userPassword}" />
+					<h:inputSecret id="senha" value="#{personBean.person.password}" />
 					
 					<h:commandButton value="Entrar" action="#{personBean.Login}" />
 				</h:panelGrid>
