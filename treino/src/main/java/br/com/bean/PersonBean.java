@@ -17,6 +17,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -41,6 +42,15 @@ public class PersonBean implements Serializable {
 	
 	private IDAOPerson idaoPerson = new IDAOPersonImpl();
 	
+	private List<SelectItem> states;
+	
+	public List<SelectItem> getStates() {
+		states = idaoPerson.listStates();
+		return states;
+	}
+	public void setStates(List<SelectItem> states) {
+		this.states = states;
+	}
 	public Person getPerson() {
 		return person;
 	}
