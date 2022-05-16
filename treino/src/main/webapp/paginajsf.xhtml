@@ -70,6 +70,17 @@
 			<h:outputLabel for="uf" value="UF:"/>
 			<h:inputText id="uf" value="#{personBean.person.uf}" title="Estado do endereço"/>
 			
+			<h:outputLabel for="state" value="Estado" />
+			<h:selectOneMenu id="state" converter="converterStates" value="#{personBean.person.states}">
+				<f:selectItem noSelectionOption="true" itemLabel="Select..." />
+				<f:selectItems value="#{personBean.states}" />
+			</h:selectOneMenu>
+			
+			<h:outputLabel for="city" value="Cidade" />
+			<h:selectOneMenu id="city">
+				<f:selectItem noSelectionOption="true" itemLabel="Select..." />
+			</h:selectOneMenu>
+			
 			<h:outputLabel for="login" value="Login:"/>
 			<h:inputText id="login" value="#{personBean.person.login}" title="Login do usúario"/>
 			
@@ -80,6 +91,8 @@
 			<h:selectOneMenu id="profile" value="#{personBean.person.userProfile}" required="false">
 				<f:selectItem noSelectionOption="true" itemLabel="Select..." />
 				<f:selectItem itemValue="ADMINISTRADOR" itemLabel="Administrador" />
+				<f:selectItem itemValue="RECEPCIONISTA" itemLabel="Recepcionista" />
+				<f:selectItem itemValue="SEGRETÁRIA" itemLabel="Secretária" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel for="active" value="Ativo:"/>

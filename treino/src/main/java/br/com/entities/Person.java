@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -33,7 +35,6 @@ public class Person implements Serializable {
 	private String complement;
 	@SerializedName("localidade")
 	private String locality;
-	@SerializedName("uf")
 	private String uf;
 	
 	private String login;
@@ -41,7 +42,25 @@ public class Person implements Serializable {
 	private String userProfile;
 	private Boolean active;
 	
+	@Transient
+	private States states;
+	@ManyToOne
+	private Cities cities;
 	
+	
+	
+	public States getStates() {
+		return states;
+	}
+	public void setStates(States states) {
+		this.states = states;
+	}
+	public Cities getCities() {
+		return cities;
+	}
+	public void setCities(Cities cities) {
+		this.cities = cities;
+	}
 	public Long getId() {
 		return id;
 	}

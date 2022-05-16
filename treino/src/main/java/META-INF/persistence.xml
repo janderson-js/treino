@@ -5,6 +5,8 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<class>br.com.entities.Person</class>
+		<class>br.com.entities.States</class>
+		<class>br.com.entities.Cities</class>
 		
 		<properties>
 			<!-- Dados de conexão com o banco de dados -->
