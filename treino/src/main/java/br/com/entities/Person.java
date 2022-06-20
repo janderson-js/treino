@@ -3,13 +3,14 @@ package br.com.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
-import javax.persistence.Transient;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -42,24 +43,49 @@ public class Person implements Serializable {
 	private String userProfile;
 	private Boolean active;
 	
-	@Transient
-	private States states;
+	//@Transient
+	private States state;
 	@ManyToOne
-	private Cities cities;
+	private Cities city;
+	
+	@Column(columnDefinition = "text")
+	private String photoBase64;
+	
+	private String extension;
+	
+	@Lob
+	private byte[] photoIconBase64Original;
 	
 	
-	
-	public States getStates() {
-		return states;
+	public String getPhotoBase64() {
+		return photoBase64;
 	}
-	public void setStates(States states) {
-		this.states = states;
+	public void setPhotoBase64(String photoBase64) {
+		this.photoBase64 = photoBase64;
 	}
-	public Cities getCities() {
-		return cities;
+	public String getExtension() {
+		return extension;
 	}
-	public void setCities(Cities cities) {
-		this.cities = cities;
+	public void setExtension(String extension) {
+		this.extension = extension;
+	}
+	public byte[] getPhotoIconBase64Original() {
+		return photoIconBase64Original;
+	}
+	public void setPhotoIconBase64Original(byte[] photoIconBase64Original) {
+		this.photoIconBase64Original = photoIconBase64Original;
+	}
+	public States getState() {
+		return state;
+	}
+	public void setState(States state) {
+		this.state = state;
+	}
+	public Cities getCity() {
+		return city;
+	}
+	public void setCity(Cities city) {
+		this.city = city;
 	}
 	public Long getId() {
 		return id;
@@ -166,5 +192,15 @@ public class Person implements Serializable {
 		Person other = (Person) obj;
 		return Objects.equals(id, other.id);
 	}
-
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", surname=" + surname
+				+ ", age=" + age + ", cep=" + cep + ", address=" + address
+				+ ", number=" + number + ", district=" + district
+				+ ", complement=" + complement + ", locality=" + locality
+				+ ", uf=" + uf + ", login=" + login + ", password=" + password
+				+ ", userProfile=" + userProfile + ", active=" + active
+				+ ", state=" + state + ", city=" + city + "]";
+	}
+	
 }

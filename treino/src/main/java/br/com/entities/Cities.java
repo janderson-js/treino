@@ -17,7 +17,6 @@ public class Cities implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
-	private States states_id;
 	
 	
 	public Long getId() {
@@ -31,12 +30,6 @@ public class Cities implements Serializable {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public States getStates_id() {
-		return states_id;
-	}
-	public void setStates_id(States states_id) {
-		this.states_id = states_id;
 	}
 	@Override
 	public int hashCode() {

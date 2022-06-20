@@ -14,6 +14,19 @@
 		<div style="width: 100vw; height: 100vh; justify-content: center;align-items: center;display: flex;flex-direction: column; ">
 			<h1>Olá, Projeto JSF</h1>
 			
+			<div>
+				<h:form id="formIndexMsg" style="margin-bottom:15px;" >
+					<h:message style="color:#0f5132;background-color:#d1e7dd;border-color:#badbcc;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
+					for="toSuccessMessage"  id="toSuccessMessage" autoUpdate="true" display="text" />
+			
+					<h:message style="color:#842029;background-color:#f8d7da;border-color:#f5c2c7;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
+					for="toDangerMessage" id="toDangerMessage" autoUpdate="true" display="text"/>
+			
+					<h:message style="color:#664d03;background-color:#fff3cd;border-color:#ffecb5;border:1px solid;padding:1rem 1rem;margin-bottom:1rem;border-radius:0.25rem;"
+					for="toWarningMessage"  id="toWarningMessage" autoUpdate="true" display="text" />
+				</h:form>
+			</div>
+			
 			<h:form id="formLogin" style="">
 				<h:panelGrid columns="2">
 					<f:facet name="header">
