@@ -29,6 +29,16 @@
 			for="toWarningMessage"  id="toWarningMessage" autoUpdate="true" display="text" />
 		</h:form>
 	</div>
+	
+	<h:form enctype="multipart/form-data" >
+		<h:panelGrid columns="2" >
+			<h:graphicImage width="60"  height="60" value="#{personBean.person.photoBase64}" />
+			
+			<h:inputFile value="#{personBean.photofile}" immediate="true">
+				<f:ajax event="change" execute="@this"  listener="#{personBean.setImage}" />
+			</h:inputFile>
+		</h:panelGrid>
+	</h:form>
 
 	<h:form id="formPerson" style="margin-bottom:5px;" >
 
@@ -71,14 +81,16 @@
 			<h:inputText id="uf" value="#{personBean.person.uf}" title="Estado do endereço"/>
 			
 			<h:outputLabel for="state" value="Estado" />
-			<h:selectOneMenu id="state" converter="converterStates" value="#{personBean.person.states}">
-				<f:selectItem noSelectionOption="true" itemLabel="Select..." />
+			<h:selectOneMenu id="state" converter="converterStates" value="#{personBean.person.state}" immediate="true">
+				<f:selectItem noSelectionOption="true"  itemLabel="Select..." itemValue="0" />
 				<f:selectItems value="#{personBean.states}" />
+				<f:ajax event="change" execute="@this" listener="#{personBean.loadingCities}" render="city" immediate="true"  />
 			</h:selectOneMenu>
 			
 			<h:outputLabel for="city" value="Cidade" />
-			<h:selectOneMenu id="city">
-				<f:selectItem noSelectionOption="true" itemLabel="Select..." />
+			<h:selectOneMenu id="city" converter="converterCities" value="#{personBean.person.city}"  immediate="true" >
+				<f:selectItem noSelectionOption="true" itemLabel="Select..." itemValue="0" />
+				<f:selectItems value="#{personBean.cities}" />
 			</h:selectOneMenu>
 			
 			<h:outputLabel for="login" value="Login:"/>

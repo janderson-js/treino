@@ -3,10 +3,13 @@ package br.com.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 @Entity
 public class States implements Serializable{
 
@@ -17,6 +20,8 @@ public class States implements Serializable{
 	private Long id;
 	private String nome;
 	private String sigla;
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	private Cities cities;
 	
 	public Long getId() {
 		return id;
@@ -35,6 +40,12 @@ public class States implements Serializable{
 	}
 	public void setInitials(String initials) {
 		this.sigla = initials;
+	}
+	public Cities getCities() {
+		return cities;
+	}
+	public void setCities(Cities cities) {
+		this.cities = cities;
 	}
 	@Override
 	public int hashCode() {
